@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FoodTracker.Models
 {
-    internal class Button : ButtonBase
+    internal class Command : ButtonBase
     {
 
-        public Button(Action execute) : base(execute)
+        public Command(Action execute) : base(execute)
         {
         }
 

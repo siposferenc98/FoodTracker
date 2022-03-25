@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FoodTracker.Models
 {
-    internal class ButtonCE : ButtonBase
+    internal class CommandCE : ButtonBase
     {
         Func<bool> _canExecute;
-        public ButtonCE(Action execute, Func<bool> canexecute) : base(execute)
+        public CommandCE(Action execute, Func<bool> canexecute) : base(execute)
         {
             _canExecute = canexecute;
         }

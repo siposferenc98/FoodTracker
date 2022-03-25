@@ -23,6 +23,7 @@ namespace FoodTracker.Views
         public AddFoodView()
         {
             InitializeComponent();
+            DataContext = new AddFoodViewVM();
         }
     }
 }

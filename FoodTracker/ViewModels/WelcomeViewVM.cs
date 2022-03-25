@@ -8,7 +8,7 @@ namespace FoodTracker.ViewModels
 {
     internal class WelcomeViewVM : ViewModelBase
     {
-        public ICommand ShowFoodUI => new ButtonCE(ShowFood,()=>true);
+        public ICommand ShowFoodUI => new Command(ShowFood);
 
         private void ShowFood()
         {
