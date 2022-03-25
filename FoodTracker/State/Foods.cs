@@ -1,5 +1,4 @@
 ﻿
-
 namespace FoodTracker.State
 {
     internal class Foods

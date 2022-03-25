@@ -1,5 +1,4 @@
 ﻿
-
 namespace FoodTracker.Views
 {
     /// <summary>
