@@ -1,0 +1,11 @@
+﻿global using System;
+global using System.Windows;
+global using System.Windows.Controls;
+global using System.Windows.Input;
+global using System.Runtime.CompilerServices;
+global using System.ComponentModel;
+global using FoodTracker.ViewModels;
+global using FoodTracker.State;
+global using FoodTracker.Views;
+global using FoodTracker.Wrappers;
+global using FoodTracker.Models;

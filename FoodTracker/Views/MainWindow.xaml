@@ -1,0 +1,19 @@
+﻿<Window x:Class="FoodTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodTracker"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewmodels="clr-namespace:FoodTracker.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowVM}"
+        Background="{DynamicResource MaterialDesignLightBackground}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <ContentControl x:Name="control" Grid.Column="1" Content="{Binding CurrentView}"></ContentControl>
+</Window>
