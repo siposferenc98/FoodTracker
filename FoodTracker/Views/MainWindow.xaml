@@ -14,6 +14,14 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-
-    <ContentControl x:Name="control" Grid.Column="1" Content="{Binding CurrentView}"></ContentControl>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Right" Margin="4">
+            Food tracker by: Sipos Ferenc
+        </Label>
+        <ContentControl x:Name="control" Grid.Row="1" Content="{Binding CurrentView}"></ContentControl>
+    </Grid>
 </Window>

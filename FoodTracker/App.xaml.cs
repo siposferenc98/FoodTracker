@@ -13,5 +13,10 @@ namespace FoodTracker
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Foods.CurrentFoods.Add(new("test1"));
+            base.OnStartup(e);
+        }
     }
 }

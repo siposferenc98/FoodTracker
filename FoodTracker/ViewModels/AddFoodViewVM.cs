@@ -8,7 +8,10 @@ namespace FoodTracker.ViewModels
 {
     internal class AddFoodViewVM : ViewModelBase
     {
+        public ObservableCollection<Food> FoodsToDisplay { get; set; } = Foods.CurrentFoods;
+
         public ICommand ReturnToMainWindowCommand => new Command(ReturnToMW);
+
 
         private void ReturnToMW()
         {
