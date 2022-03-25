@@ -11,5 +11,11 @@ namespace FoodTracker
             InitializeComponent();
             DataContext = new MainWindowVM();
         }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            Foods.SaveFoodsToJson();
+            base.OnClosed(e);
+        }
     }
 }

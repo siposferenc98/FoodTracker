@@ -13,12 +13,27 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="circleButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionButton}">
+            <Setter Property="Width" Value="45"></Setter>
+            <Setter Property="Height" Value="45"></Setter>
+            <Setter Property="FontSize" Value="36"></Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <Button Margin="10" Command="{Binding ReturnToMainWindowCommand}" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="36">&#129044;</Button>
+        <Button Margin="10" Command="{Binding ReturnToMainWindowCommand}" HorizontalAlignment="Left" Style="{StaticResource circleButton}" >&#129044;</Button>
+        <TextBlock Text="{Binding FoodsToDisplay.Count,StringFormat='Current foods: {0}'}" Grid.Column="1"></TextBlock>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Button Command="{Binding AddFoodCommand}">Add food</Button>
+        </Grid>
     </Grid>
 </UserControl>

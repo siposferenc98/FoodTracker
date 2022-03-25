@@ -15,7 +15,7 @@ namespace FoodTracker
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            Foods.CurrentFoods.Add(new("test1"));
+            Foods.ReadFoodsFromJson();
             base.OnStartup(e);
         }
     }
