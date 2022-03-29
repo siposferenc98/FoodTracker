@@ -69,6 +69,18 @@ namespace FoodTracker.ViewModels
         public ICommand ReturnToMainWindowCommand => new Command(ReturnToMW);
         public ICommand AddFoodCommand => new CommandCE(AddFood,AddFoodCE);
 
+        public AddFoodViewVM()
+        {
+            SetDefaultValues();
+        }
+
+        private void SetDefaultValues()
+        {
+            NewFoodImgUrl = @"/FoodTracker;component/Resources/Addimage.png";
+            NewFoodIngredients = "";
+            NewFoodName = null;
+            NewFoodPrepTime = 0;
+        }
 
         private void ChangeImage()
         {
@@ -80,27 +92,23 @@ namespace FoodTracker.ViewModels
             }
         }
 
-        private void ReturnToMW()
-        {
-            CurrentViewState.CurrentUserControl = new WelcomeView();
-        }
-
         private void AddFood()
         {
             List<string> newIngredients = NewFoodIngredients!.TrimEnd().Split(' ').ToList();
             Food newFood = new(NewFoodName!, newIngredients, DateTime.Now, NewFoodImgUrl, NewFoodPrepTime);
             Foods.CurrentFoods.Add(newFood);
 
-            NewFoodImgUrl = @"/FoodTracker;component/Resources/Addimage.png";
-            NewFoodIngredients = "";
-            NewFoodName = null;
-            NewFoodPrepTime = 0;
+            SetDefaultValues();
             RaisePropertyChanged(nameof(Ingredients));
         }
 
         private bool AddFoodCE()
         {
             return NewFoodName is not null && NewFoodName.Length > 0 && NewFoodIngredients is not null && NewFoodIngredients.Length > 0 && NewFoodPrepTime is not 0;
+        }
+        private void ReturnToMW()
+        {
+            CurrentViewState.CurrentUserControl = new WelcomeView();
         }
 
     }

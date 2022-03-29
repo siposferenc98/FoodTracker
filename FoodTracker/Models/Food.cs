@@ -3,7 +3,7 @@ namespace FoodTracker.Models
 {
     internal class Food
     {
-        private string _imageUrl;
+        private string _imageUrl = "";
         public string Name { get; set; }
         public List<string> Ingredients { get; set; }
         public DateTime LastMade { get; set; }
