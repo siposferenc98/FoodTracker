@@ -10,6 +10,7 @@ global using System.Collections.ObjectModel;
 global using System.ComponentModel;
 global using System.Collections.Generic;
 global using System.Text.Json;
+global using System.Text.Json.Serialization;
 global using FoodTracker.ViewModels;
 global using FoodTracker.State;
 global using FoodTracker.Views;

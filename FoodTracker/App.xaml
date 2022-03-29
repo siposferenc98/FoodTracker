@@ -6,6 +6,11 @@
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <Style x:Key="imageButton" TargetType="Button">
+                <Setter Property="Height" Value="150"></Setter>
+                <Setter Property="Width" Value="150"></Setter>
+                <Setter Property="Background" Value="Transparent"></Setter>
+            </Style>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Cyan" SecondaryColor="Teal" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

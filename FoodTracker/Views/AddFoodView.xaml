@@ -23,11 +23,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
-        <Style x:Key="imageButton" TargetType="Button">
-            <Setter Property="Height" Value="150"></Setter>
-            <Setter Property="Width" Value="150"></Setter>
-            <Setter Property="Background" Value="Transparent"></Setter>
-        </Style>
+        
     </UserControl.Resources>
     
     <Grid>
@@ -48,8 +44,8 @@
             <Border Grid.Column="1" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="5">
                 <StackPanel>
                     <Grid>
-                        <Button Style="{StaticResource imageButton}" Command="{Binding ChangeImageCommand}">
-                            <Image Source="{Binding NewFoodImgUrl}"></Image>
+                        <Button Style="{StaticResource imageButton}" Command="{Binding NewFood.ChangeImageCommand}">
+                            <Image Source="{Binding NewFood.ImageUrl}"></Image>
                         </Button>
                     </Grid>
                     <Grid>
@@ -59,7 +55,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel>
                             <Label Margin="5">Name of your food</Label>
-                            <TextBox Margin="5" Text="{Binding NewFoodName,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBox Margin="5" Text="{Binding NewFood.Name,UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
@@ -75,7 +71,7 @@
                             <ColumnDefinition Width="0.8*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Label>Preparation time(h):</Label>
-                        <Slider Grid.Column="1" Maximum="10" TickPlacement="BottomRight" AutoToolTipPrecision="1" AutoToolTipPlacement="BottomRight" TickFrequency="0.5" IsSnapToTickEnabled="True" Value="{Binding NewFoodPrepTime}"></Slider>
+                        <Slider Grid.Column="1" Maximum="10" TickPlacement="BottomRight" AutoToolTipPrecision="1" AutoToolTipPlacement="BottomRight" TickFrequency="0.5" IsSnapToTickEnabled="True" Value="{Binding NewFood.PrepTime}"></Slider>
                     </Grid>
                     
                     <Button Grid.Column="1" Grid.Row="2" Command="{Binding AddFoodCommand}" Margin="5">Add food</Button>

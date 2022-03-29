@@ -43,8 +43,13 @@
                     <DataTemplate>
                         <Grid Width="auto" Height="auto" Background="#f0f0f0" Margin="2">
                             <StackPanel>
-                                <Image Height="150" Source="{Binding ImageUrl}"></Image>
-                                <Label FontWeight="DemiBold" FontSize="18" HorizontalAlignment="Center" Content="{Binding Name}"></Label>
+                                <Button Style="{StaticResource imageButton}" Command="{Binding ChangeImageCommand}">
+                                    <Image Source="{Binding ImageUrl}"></Image>
+                                </Button>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label FontWeight="DemiBold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Name}"></Label>
+                                    <Button Style="{StaticResource MaterialDesignIconButton}" Command="{Binding DeleteThisCommand}">X</Button>
+                                </StackPanel>
                                 <Expander Header="Ingredients" Background="#f0f0f0">
                                     <Expander.Content>
                                         <ItemsControl ItemsSource="{Binding Ingredients}">
