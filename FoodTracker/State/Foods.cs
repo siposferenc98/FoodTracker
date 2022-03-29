@@ -9,6 +9,17 @@ namespace FoodTracker.State
     {
         public static ObservableCollection<Food> CurrentFoods = new();
 
+        public static void SortDisplayList(int index)
+        {
+            CurrentFoods = index switch
+            {
+                0 => new(CurrentFoods.OrderByDescending(x => DateTime.Now - x.LastMade)),
+                1 => new(CurrentFoods.OrderBy(x => x.PrepTime)),
+                2 => new(CurrentFoods.OrderBy(x => x.Ingredients.Count)),
+                _ => new(CurrentFoods)
+            };
+        }
+
         public static void SaveFoodsToJson()
         {
             JsonSerializerOptions jsonSerializerOptions = new()

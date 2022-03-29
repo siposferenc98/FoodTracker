@@ -50,6 +50,8 @@ namespace FoodTracker.Models
         public ICommand ChangeImageCommand => new Command(ChangeImage);
         [JsonIgnore]
         public ICommand DeleteThisCommand => new Command(DeleteThis);
+        [JsonIgnore]
+        public ICommand MadeFoodNowCommand => new Command(MadeFoodNow);
 
         public Food(string name, List<string> ingredients, DateTime lastMade, string imageUrl, double prepTime)
         {
@@ -63,6 +65,11 @@ namespace FoodTracker.Models
         public Food()
         {
 
+        }
+
+        private void MadeFoodNow()
+        {
+            LastMade = DateTime.Now;
         }
 
         private void ChangeImage()
