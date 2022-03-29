@@ -23,6 +23,11 @@
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
+        <Style x:Key="imageButton" TargetType="Button">
+            <Setter Property="Height" Value="150"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+        </Style>
     </UserControl.Resources>
     
     <Grid>
@@ -43,21 +48,28 @@
             <Border Grid.Column="1" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="5">
                 <StackPanel>
                     <Grid>
+                        <Button Style="{StaticResource imageButton}" Command="{Binding ChangeImageCommand}">
+                            <Image Source="{Binding NewFoodImgUrl}"></Image>
+                        </Button>
+                    </Grid>
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel>
                             <Label Margin="5">Name of your food</Label>
-                            <TextBox Margin="5"></TextBox>
+                            <TextBox Margin="5" Text="{Binding NewFoodName,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <Label Margin="5">Ingredients</Label>
-                            <TextBox Margin="5"></TextBox>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Margin="5">Ingredients</Label>
+                                <ComboBox Width="8" ItemsSource="{Binding Ingredients}" SelectedValue="{Binding SelectedIngredient,Mode=OneWayToSource}"></ComboBox>
+                            </StackPanel>
+                            <TextBox Margin="5" Text="{Binding NewFoodIngredients,UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
                     </Grid>
                     <Button Grid.Column="1" Grid.Row="2" Command="{Binding AddFoodCommand}" Margin="5">Add food</Button>
-
                 </StackPanel>
             </Border>
         </Grid>

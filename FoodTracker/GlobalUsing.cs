@@ -1,6 +1,8 @@
-﻿global using System;
+﻿global using Microsoft.Win32;
+global using System;
 global using System.IO;
 global using System.Windows;
+global using System.Linq;
 global using System.Windows.Controls;
 global using System.Windows.Input;
 global using System.Runtime.CompilerServices;
