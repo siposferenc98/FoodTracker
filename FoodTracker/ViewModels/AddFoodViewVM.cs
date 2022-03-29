@@ -5,12 +5,22 @@ namespace FoodTracker.ViewModels
 {
     internal class AddFoodViewVM : ViewModelBase
     {
+        private string? _newFoodName;
         private string _newFoodIngredients = "";
         private string _newFoodImgUrl = @"/FoodTracker;component/Resources/Addimage.png";
+        private double _newFoodPrepTime;
         public ObservableCollection<Food> FoodsToDisplay => Foods.CurrentFoods;
         public List<string> Ingredients => Foods.CurrentFoods.SelectMany(x => x.Ingredients).Distinct().ToList();
 
-        public string? NewFoodName { get; set; }
+        public string? NewFoodName 
+        {
+            get => _newFoodName; 
+            set
+            {
+                _newFoodName = value;
+                RaisePropertyChanged();
+            }
+        }
         public string NewFoodIngredients
         {
             get => _newFoodIngredients;
@@ -44,6 +54,16 @@ namespace FoodTracker.ViewModels
             }
         }
 
+        public double NewFoodPrepTime
+        {
+            get => _newFoodPrepTime;
+            set
+            {
+                _newFoodPrepTime = value;
+                RaisePropertyChanged();
+            }
+        }
+
 
         public ICommand ChangeImageCommand => new Command(ChangeImage);
         public ICommand ReturnToMainWindowCommand => new Command(ReturnToMW);
@@ -68,13 +88,19 @@ namespace FoodTracker.ViewModels
         private void AddFood()
         {
             List<string> newIngredients = NewFoodIngredients!.TrimEnd().Split(' ').ToList();
-            Food newFood = new(NewFoodName!, newIngredients);
+            Food newFood = new(NewFoodName!, newIngredients, DateTime.Now, NewFoodImgUrl, NewFoodPrepTime);
             Foods.CurrentFoods.Add(newFood);
+
+            NewFoodImgUrl = @"/FoodTracker;component/Resources/Addimage.png";
+            NewFoodIngredients = "";
+            NewFoodName = null;
+            NewFoodPrepTime = 0;
+            RaisePropertyChanged(nameof(Ingredients));
         }
 
         private bool AddFoodCE()
         {
-            return NewFoodName is not null && NewFoodName.Length > 0 && NewFoodIngredients is not null && NewFoodIngredients.Length > 0;
+            return NewFoodName is not null && NewFoodName.Length > 0 && NewFoodIngredients is not null && NewFoodIngredients.Length > 0 && NewFoodPrepTime is not 0;
         }
 
     }

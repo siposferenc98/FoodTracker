@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="FoodTracker.Views.AddFoodView"
+﻿<UserControl xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  x:Class="FoodTracker.Views.AddFoodView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -59,7 +59,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel>
                             <Label Margin="5">Name of your food</Label>
-                            <TextBox Margin="5" Text="{Binding NewFoodName,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBox Margin="5" Text="{Binding NewFoodName,UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
@@ -69,6 +69,15 @@
                             <TextBox Margin="5" Text="{Binding NewFoodIngredients,UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
                     </Grid>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label>Preparation time(h):</Label>
+                        <Slider Grid.Column="1" Maximum="10" TickPlacement="BottomRight" AutoToolTipPrecision="1" AutoToolTipPlacement="BottomRight" TickFrequency="0.5" IsSnapToTickEnabled="True" Value="{Binding NewFoodPrepTime}"></Slider>
+                    </Grid>
+                    
                     <Button Grid.Column="1" Grid.Row="2" Command="{Binding AddFoodCommand}" Margin="5">Add food</Button>
                 </StackPanel>
             </Border>
