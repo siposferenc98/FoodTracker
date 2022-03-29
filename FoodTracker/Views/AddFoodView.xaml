@@ -32,8 +32,34 @@
         </Grid.RowDefinitions>
         <Button Margin="10" Command="{Binding ReturnToMainWindowCommand}" HorizontalAlignment="Left" Style="{StaticResource circleButton}" >&#129044;</Button>
         <TextBlock Text="{Binding FoodsToDisplay.Count,StringFormat='Current foods: {0}'}" Grid.Column="1"></TextBlock>
+        <Border BorderBrush="Black" BorderThickness="0 0 0 1" ></Border>
+        
         <Grid Grid.Row="1" Grid.Column="1">
-            <Button Command="{Binding AddFoodCommand}">Add food</Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="1" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="5">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <Label Margin="5">Name of your food</Label>
+                            <TextBox Margin="5"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <Label Margin="5">Ingredients</Label>
+                            <TextBox Margin="5"></TextBox>
+                        </StackPanel>
+                    </Grid>
+                    <Button Grid.Column="1" Grid.Row="2" Command="{Binding AddFoodCommand}" Margin="5">Add food</Button>
+
+                </StackPanel>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

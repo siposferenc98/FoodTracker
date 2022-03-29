@@ -16,7 +16,7 @@ namespace FoodTracker.ViewModels
 
         private void AddFood()
         {
-            Foods.CurrentFoods.Add(new("testy"));
+            Foods.CurrentFoods.Add(new("testy", new() {"test1","test2","test3" }));
         }
 
     }
