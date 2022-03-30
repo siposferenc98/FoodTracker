@@ -13,11 +13,35 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UserControl.Loaded">
+            <BeginStoryboard Storyboard="{DynamicResource onloadAnimation}"></BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
+        <Storyboard x:Key="onloadAnimation">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="addFoodStackPanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <EasingThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,50"/>
+                <SplineThicknessKeyFrame KeyTime="00:00:00.6000000" Value="0,0,0,0">
+                    <SplineThicknessKeyFrame.KeySpline>
+                        <KeySpline ControlPoint2="0,1"/>
+                    </SplineThicknessKeyFrame.KeySpline>
+                </SplineThicknessKeyFrame>
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="addFoodStackPanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1">
+                    <SplineDoubleKeyFrame.KeySpline>
+                        <KeySpline ControlPoint2="0,1"/>
+                    </SplineDoubleKeyFrame.KeySpline>
+                </SplineDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </UserControl.Resources>
     
     <Grid>
@@ -35,7 +59,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="0.2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="1" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="5">
+            <Border x:Name="addFoodStackPanel" Grid.Column="1" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="5">
                 <StackPanel>
                     <Grid>
                         <Button Style="{StaticResource imageButton}" Command="{Binding NewFood.ChangeImageCommand}">

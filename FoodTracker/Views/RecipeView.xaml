@@ -33,15 +33,18 @@
         <Label Content="{Binding FoodName}"></Label>
         <Label Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Recipe:</Label>
         <Button Grid.Column="2" Margin="3" Command="{Binding ToggleRecipeEditCommand}">Edit</Button>
-        <ListView ItemsSource="{Binding Ingredients}"  Grid.Row="1">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Label Content="{Binding}"></Label>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackPanel Grid.Row="1">
+            <Label>Ingredients:</Label>
+            <ListView ItemsSource="{Binding Ingredients}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding}"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
         <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Recipe}" IsReadOnly="{Binding IsReadOnly}" AcceptsReturn="True"></TextBox>
         <Button Grid.Row="2" Grid.Column="2" Margin="3" Command="{Binding SaveRecipeCommand}">Save</Button>
     </Grid>

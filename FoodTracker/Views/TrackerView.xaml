@@ -13,6 +13,29 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Storyboard x:Key="onloadAnimation">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="foodDisplayControl" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <EasingThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,50"/>
+                <SplineThicknessKeyFrame KeyTime="00:00:00.6000000" Value="0,0,0,0">
+                    <SplineThicknessKeyFrame.KeySpline>
+                        <KeySpline ControlPoint2="0,1"/>
+                    </SplineThicknessKeyFrame.KeySpline>
+                </SplineThicknessKeyFrame>
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="foodDisplayControl" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1">
+                    <SplineDoubleKeyFrame.KeySpline>
+                        <KeySpline ControlPoint2="0,1"/>
+                    </SplineDoubleKeyFrame.KeySpline>
+                </SplineDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -31,7 +54,7 @@
         </StackPanel>
         <Border BorderBrush="Black" BorderThickness="0 0 0 1" ></Border>
         <Grid Grid.Row="1">
-            <ItemsControl ItemsSource="{Binding FoodsToDisplay}" Margin="5 10 0 0">
+            <ItemsControl x:Name="foodDisplayControl" ItemsSource="{Binding FoodsToDisplay}" Margin="5 10 0 0">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
@@ -44,6 +67,11 @@
                         </ScrollViewer>
                     </ControlTemplate>
                 </ItemsControl.Template>
+                <ItemsControl.Triggers>
+                    <EventTrigger RoutedEvent="ItemsControl.Loaded">
+                        <BeginStoryboard Storyboard="{DynamicResource onloadAnimation}"></BeginStoryboard>
+                    </EventTrigger>
+                </ItemsControl.Triggers>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border Width="auto" Height="auto" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="2" Padding="5" Background="#f0f0f0">

@@ -18,8 +18,8 @@
             <BeginStoryboard Storyboard="{DynamicResource onloadAnimation}"></BeginStoryboard>
         </EventTrigger>
     </UserControl.Triggers>
+    
     <UserControl.Resources>
-
         <Storyboard x:Key="onloadAnimation">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="addFoodStackPanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
                 <EasingThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,50"/>

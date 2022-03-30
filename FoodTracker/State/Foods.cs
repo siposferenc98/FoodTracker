@@ -44,7 +44,6 @@ namespace FoodTracker.State
             {
                 CurrentFoods = JsonSerializer.Deserialize<ObservableCollection<Food>>(File.ReadAllText(file,Encoding.UTF8)) ?? new();
             }
-            FoodsToDisplay = new(CurrentFoods);
         }
     }
 }
