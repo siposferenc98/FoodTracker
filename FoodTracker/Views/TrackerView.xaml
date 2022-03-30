@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FoodTracker.Views" xmlns:viewmodels="clr-namespace:FoodTracker.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:TrackerViewVM}"
+             xmlns:local="clr-namespace:FoodTracker.Views"
+             xmlns:viewmodels="clr-namespace:FoodTracker.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:TrackerViewVM}"
              Background="{DynamicResource MaterialDesignLightBackground}"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Medium"
@@ -24,8 +26,8 @@
                 <ComboBoxItem>Preperation Time</ComboBoxItem>
                 <ComboBoxItem>Ingredient Count</ComboBoxItem>
             </ComboBox>
-            <Label>Search: </Label>
-            <TextBox Width="50" Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label Margin="40 0 0 0 ">Search: </Label>
+            <TextBox Width="100" Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <Border BorderBrush="Black" BorderThickness="0 0 0 1" ></Border>
         <Grid Grid.Row="1">

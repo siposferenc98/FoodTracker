@@ -3,14 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FoodTracker.Views" xmlns:viewmodels="clr-namespace:FoodTracker.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:RecipeViewVM}"
+        xmlns:local="clr-namespace:FoodTracker.Views" 
+        xmlns:viewmodels="clr-namespace:FoodTracker.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodels:RecipeViewVM}"
         Background="{DynamicResource MaterialDesignLightBackground}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="AddRecipeView" Height="350" Width="500">
+        Title="Recipe" MinHeight="350" Height="350" MinWidth="500" Width="500">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
