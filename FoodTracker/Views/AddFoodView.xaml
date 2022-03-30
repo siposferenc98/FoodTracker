@@ -19,11 +19,19 @@
             <BeginStoryboard Storyboard="{DynamicResource onloadAnimation}"></BeginStoryboard>
         </EventTrigger>
     </UserControl.Triggers>
+    
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
+        
+        <Style x:Key="circleButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionButton}">
+            <Setter Property="Width" Value="45"></Setter>
+            <Setter Property="Height" Value="45"></Setter>
+            <Setter Property="FontSize" Value="36"></Setter>
+        </Style>
+        
         <Storyboard x:Key="onloadAnimation">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="addFoodStackPanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
                 <EasingThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,50"/>

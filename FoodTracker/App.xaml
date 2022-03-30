@@ -11,17 +11,8 @@
                 <Setter Property="Width" Value="150"></Setter>
                 <Setter Property="Background" Value="Transparent"></Setter>
             </Style>
-            <Style x:Key="circleButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionButton}">
-                <Setter Property="Width" Value="45"></Setter>
-                <Setter Property="Height" Value="45"></Setter>
-                <Setter Property="FontSize" Value="36"></Setter>
-            </Style>
-            <Style x:Key="xButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignIconButton}">
-                <Setter Property="Width" Value="22"></Setter>
-                <Setter Property="Height" Value="22"></Setter>
-                <Setter Property="FontSize" Value="14"></Setter>
-                <Setter Property="Foreground" Value="Red"></Setter>
-            </Style>
+
+
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Cyan" SecondaryColor="Teal" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
