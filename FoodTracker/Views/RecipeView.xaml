@@ -40,7 +40,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Recipe}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Recipe}" IsReadOnly="{Binding IsReadOnly}" AcceptsReturn="True"></TextBox>
         <Button Grid.Row="2" Grid.Column="2" Margin="3" Command="{Binding SaveRecipeCommand}">Save</Button>
     </Grid>
 </Window>

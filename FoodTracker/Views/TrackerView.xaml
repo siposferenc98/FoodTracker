@@ -44,40 +44,42 @@
                 </ItemsControl.Template>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid Width="auto" Height="auto" Background="#f0f0f0" Margin="2">
-                            <StackPanel>
-                                <Button Style="{StaticResource imageButton}" Command="{Binding ChangeImageCommand}">
-                                    <Image Source="{Binding ImageUrl}"></Image>
-                                </Button>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Label FontWeight="DemiBold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Name}"></Label>
-                                    <Button Style="{StaticResource xButton}" Command="{Binding DeleteThisCommand}">X</Button>
+                        <Border Width="auto" Height="auto" BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="2" Padding="5" Background="#f0f0f0">
+                            <Grid >
+                                <StackPanel>
+                                    <Button Style="{StaticResource imageButton}" Command="{Binding ChangeImageCommand}">
+                                        <Image Source="{Binding ImageUrl}"></Image>
+                                    </Button>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label FontWeight="DemiBold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Name}"></Label>
+                                        <Button Style="{StaticResource xButton}" Command="{Binding DeleteThisCommand}">X</Button>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding PrepTime,StringFormat=Prep. Time: {0} hours.}" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                                    <TextBlock Text="{Binding LastMade.Date,StringFormat=Last made: {0:yyyy/MM/dd}}" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Command="{Binding MadeFoodNowCommand}">Just made it.</Button>
+                                        <Button Grid.Column="1" Command="{Binding OpenRecipeCommand}">Recipe</Button>
+                                    </Grid>
+
+                                    <Expander Header="Ingredients" Background="#f0f0f0">
+                                        <Expander.Content>
+                                            <ItemsControl ItemsSource="{Binding Ingredients}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding}"></TextBlock>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Expander.Content>
+                                    </Expander>
+
                                 </StackPanel>
-                                <TextBlock Text="{Binding PrepTime,StringFormat=Prep. Time: {0} hours.}" HorizontalAlignment="Center" FontSize="16"></TextBlock>
-                                <TextBlock Text="{Binding LastMade.Date,StringFormat=Last made: {0:yyyy/MM/dd}}" HorizontalAlignment="Center" FontSize="16"></TextBlock>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Button Command="{Binding MadeFoodNowCommand}">Just made it.</Button>
-                                    <Button Grid.Column="1" Command="{Binding OpenRecipeCommand}">Recipe</Button>
-                                </Grid>
-                                
-                                <Expander Header="Ingredients" Background="#f0f0f0">
-                                    <Expander.Content>
-                                        <ItemsControl ItemsSource="{Binding Ingredients}">
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <TextBlock Text="{Binding}"></TextBlock>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-                                    </Expander.Content>
-                                </Expander>
-                                
-                            </StackPanel>
-                        </Grid>
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
