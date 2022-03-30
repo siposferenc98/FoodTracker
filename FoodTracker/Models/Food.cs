@@ -6,6 +6,7 @@ namespace FoodTracker.Models
     {
         private string _name = "";
         private string _imageUrl = "";
+        private string _recipe = "";
         private double _prepTime;
         private DateTime _lastMade;
         public string Name
@@ -46,12 +47,24 @@ namespace FoodTracker.Models
             }
         }
 
+        public string Recipe
+        {
+            get => _recipe;
+            set
+            {
+                _recipe = value;
+                RaisePropertyChanged();
+            }
+        }
+
         [JsonIgnore]
         public ICommand ChangeImageCommand => new Command(ChangeImage);
         [JsonIgnore]
         public ICommand DeleteThisCommand => new Command(DeleteThis);
         [JsonIgnore]
         public ICommand MadeFoodNowCommand => new Command(MadeFoodNow);
+        [JsonIgnore]
+        public ICommand OpenRecipeCommand => new Command(OpenRecipe);
 
         public Food(string name, List<string> ingredients, DateTime lastMade, string imageUrl, double prepTime)
         {
@@ -80,6 +93,15 @@ namespace FoodTracker.Models
             {
                 ImageUrl = openFileDialog.FileName;
             }
+        }
+
+        private void OpenRecipe()
+        {
+            RecipeViewVM recipeViewVM = new(Name,Ingredients,Recipe);
+            RecipeView recipeView = new();
+            recipeViewVM.SaveButtonPressed += () => Recipe = recipeViewVM.Recipe;
+            recipeView.DataContext = recipeViewVM;
+            recipeView.Show();
         }
 
         private void DeleteThis()
