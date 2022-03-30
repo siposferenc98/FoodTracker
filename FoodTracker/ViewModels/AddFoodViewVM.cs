@@ -48,6 +48,7 @@ namespace FoodTracker.ViewModels
             NewFood.Ingredients = newIngredients;
             NewFood.LastMade = DateTime.Now;
             Foods.CurrentFoods.Add(NewFood);
+            Foods.FoodsToDisplay.Add(NewFood);
             RefreshAndSetProperties();
         }
 

@@ -19,7 +19,7 @@
             <Style x:Key="xButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignIconButton}">
                 <Setter Property="Width" Value="22"></Setter>
                 <Setter Property="Height" Value="22"></Setter>
-                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
                 <Setter Property="Foreground" Value="Red"></Setter>
             </Style>
             <ResourceDictionary.MergedDictionaries>

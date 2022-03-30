@@ -85,6 +85,7 @@ namespace FoodTracker.Models
         private void DeleteThis()
         {
             Foods.CurrentFoods.Remove(this);
+            Foods.FoodsToDisplay.Remove(this);
         }
     }
 }
